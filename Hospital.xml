@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<consumerCfg>
+    <consumerName>Hospital</consumerName>
+    <DistributorName>Distro1</DistributorName>
+    <graph>
+        <graphs hour="1" power="12"/>
+        <graphs hour="2" power="13"/>
+        <graphs hour="3" power="5"/>
+    </graph>
+</consumerCfg>
