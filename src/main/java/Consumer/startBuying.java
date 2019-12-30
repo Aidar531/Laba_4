@@ -5,28 +5,24 @@ import jade.core.behaviours.OneShotBehaviour;
 import jade.lang.acl.ACLMessage;
 
 public class startBuying extends OneShotBehaviour {
-    public int energyToBuyLeft = 0;
+    public Energy energy;
     public consumerCfg cfg;
-    public startBuying(int energyToBuyLeft, consumerCfg cfg) {
-        this.energyToBuyLeft = energyToBuyLeft;
+
+    public startBuying(Energy energy, consumerCfg cfg) {
+        this.energy = energy;
         this.cfg = cfg;
     }
 
     @Override
     public void action() {
 
-        ACLMessage msg = new ACLMessage(ACLMessage.REQUEST);
-        msg.addReceiver(new AID(cfg.getDistributorName(), false));
-        msg.setProtocol("start");
-        msg.setContent("1");
-        System.out.println("Начал процесс закупки по одному Вт " +
-                energyToBuyLeft +
-                " Вт "+ getAgent().getLocalName());
-        energyToBuyLeft = energyToBuyLeft - 1;
+           myAgent.addBehaviour(new OneEnergyRequest(cfg,energy));
+
         }
     @Override
     public int onEnd() {
-        myAgent.addBehaviour(new waitingForEnergy(energyToBuyLeft));
+//
+        myAgent.addBehaviour(new waitingForEnergy(energy,cfg));
         return 1;
     }
 }

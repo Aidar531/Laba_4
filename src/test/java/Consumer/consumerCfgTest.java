@@ -5,10 +5,12 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.Assert.*;
-
 public class consumerCfgTest {
     private List<graph> ListOfGraphs = new ArrayList<graph>();;
+
+    public static long initTime = System.currentTimeMillis();
+    public static long hourDuration = 12000;
+
     @Test
     public void cfgTest(){
 
@@ -22,9 +24,22 @@ public class consumerCfgTest {
         consumerCfg cfg = new consumerCfg();
         cfg.setConsumerName("Hospital");
         cfg.setDistributorName("Distro1");
+        cfg.setInstalledPower(10);
         cfg.setGraphs(ListOfGraphs);
+        WorkWithXml.marshalAny(consumerCfg.class ,cfg,"School.xml");
 
-        WorkWithXml.marshalAny(consumerCfg.class ,cfg,"Hospital.xml");
+        consumerCfg Cfg = WorkWithXml.unMarshalAny(consumerCfg.class, "School.xml");
+
+        System.out.println(cfg.getGraphs().get(2).getHour());
+    }
+
+
+    public static long getCurrentHour() {
+        return (System.currentTimeMillis()-initTime)/hourDuration;
+    }
+
+    public static long calcMillisTillNextHour() {
+        return hourDuration - (System.currentTimeMillis()-initTime)%hourDuration;
     }
 
 }

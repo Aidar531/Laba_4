@@ -4,6 +4,7 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
+import java.util.Objects;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 public class graph {
@@ -11,13 +12,13 @@ public class graph {
     @XmlAttribute
     private int hour;
     @XmlAttribute
-    private int power;
+    private double power;
 
-    public graph(int hour, int power) {
+    public graph(int hour, double power) {
         this.hour = hour;
         this.power = power;
     }
-
+    public graph(){}
     public int getHour() {
         return hour;
     }

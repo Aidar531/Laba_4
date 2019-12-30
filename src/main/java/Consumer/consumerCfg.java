@@ -11,6 +11,17 @@ public class consumerCfg {
     private String consumerName;
     @XmlElement
     private String DistributorName;
+
+    public int getInstalledPower() {
+        return installedPower;
+    }
+
+    public void setInstalledPower(int installedPower) {
+        this.installedPower = installedPower;
+    }
+
+    @XmlElement
+    private int installedPower;
     @XmlElementWrapper(name = "graph")
     @XmlElement(name = "graphs")
     private List<graph> graphs;

@@ -1,7 +1,9 @@
+package Generation;
+
 public class Time_sync {
 
     public static long initTime = System.currentTimeMillis();
-    public static long hourDuration = 120000;
+    public static long hourDuration = 20000;
 
     public static long getCurrentHour() {
         return (System.currentTimeMillis()-initTime)/hourDuration;

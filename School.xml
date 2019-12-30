@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <consumerCfg>
     <consumerName>Hospital</consumerName>
-    <DistributorName>Distro2</DistributorName>
-    <installedPower>15</installedPower>
+    <DistributorName>Distro1</DistributorName>
+    <installedPower>10</installedPower>
     <graph>
-        <graphs hour="1" power="0.1"/>
-        <graphs hour="2" power="0.1"/>
-        <graphs hour="3" power="0.3"/>
-        <graphs hour="4" power="0.3"/>
-        <graphs hour="5" power="0.3"/>
+        <graphs hour="1" power="0.5"/>
+        <graphs hour="2" power="0.3"/>
+        <graphs hour="3" power="0.1"/>
+        <graphs hour="4" power="0.1"/>
+        <graphs hour="5" power="0.5"/>
         <graphs hour="6" power="0.5"/>
         <graphs hour="7" power="0.5"/>
         <graphs hour="8" power="0.3"/>
